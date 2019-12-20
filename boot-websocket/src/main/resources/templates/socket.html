@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Socket</title>
+</head>
+<body>
+<input type="hidden" id="id_clientId" th:value="${cid}"/>
+<br>
+Current Client is : <span th:text="${cid}"></span>
+</body>
+<script type="text/javascript" src="/static/js/websocket-hello.js"></script>
+</html>
