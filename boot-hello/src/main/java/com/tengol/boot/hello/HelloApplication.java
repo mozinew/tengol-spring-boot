@@ -1,20 +1,20 @@
-package com.tengol.spring.boot.websocket;
+package com.tengol.boot.hello;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * WebSocketApplication
+ * HelloApplication
  *
  * @author dongrui
- * @date 2019/12/20 9:32
+ * @date 2020/3/20 14:06
  */
 @Slf4j
 @SpringBootApplication
-public class WebSocketApplication {
+public class HelloApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WebSocketApplication.class, args);
-        log.info("WebSocketApplication start successfully ...");
+        SpringApplication.run(HelloApplication.class, args);
+        log.info("HelloApplication start successfully ......");
     }
 }
