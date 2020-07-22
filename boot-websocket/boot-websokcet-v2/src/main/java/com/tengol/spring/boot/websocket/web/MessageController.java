@@ -1,4 +1,4 @@
-package com.tengol.spring.boot.websocket;
+package com.tengol.spring.boot.websocket.web;
 
 import com.tengol.spring.boot.websocket.server.WebSocketServer;
 import lombok.extern.slf4j.Slf4j;
