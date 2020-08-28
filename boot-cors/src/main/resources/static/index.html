@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="uft-8"/>
+        <title>Hello Cors</title>
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btn_1").click(function () {
+                    console.log("hello");
+                    $.get("http://localhost:8080/simple?name=simple-00000",function (result) {
+                        console.log("result : " + result);
+                        $("#txt_1").attr("value",result);
+                    })
+                });
+                $("#btn_2").click(function () {
+                    console.log("hello");
+                    $.get("http://localhost:8081/simple?name=simple-11111",function (result) {
+                        console.log("result : " + result);
+                        $("#txt_2").attr("value",result);
+                    })
+                });
+                $("#btn_2").click(function () {
+                    console.log("hello");
+                    $.get("http://localhost:8081/simple?name=simple-11111",function (result) {
+                        console.log("result : " + result);
+                        $("#txt_2").attr("value",result);
+                    })
+                });
+                $("#btn_3").click(function () {
+                    console.log("非简单请求（预检请求）：PUT");
+                    $.ajax({
+                        url: 'http://localhost:8081/not-simple?name=not-simple-00000',
+                        type: 'PUT',
+                        success: function(result) {
+                            console.log("result : " + result);
+                            $("#txt_3").attr("value",result);
+                        }
+                    });
+                });
+                $("#btn_4").click(function () {
+                    console.log("非简单请求（预检请求）：PUT");
+                    $.ajax({
+                        url: 'http://localhost:8081/not-simple?name=not-simple-11111',
+                        type: 'PUT',
+                        success: function(result) {
+                            console.log("result : " + result);
+                            $("#txt_4").attr("value",result);
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+    <h1>Hello Corse</h1>
+    <button id="btn_1" type="button">GET-AAA</button>  : <input type="text" id="txt_1"/><br>
+    <button id="btn_2" type="button">GET-BBB</button>  : <input type="text" id="txt_2"/><br>
+    <button id="btn_3" type="button">PUT-BBB</button>  : <input type="text" id="txt_3"/><br>
+    <button id="btn_4" type="button">PUT-BBB</button>  : <input type="text" id="txt_4"/><br>
+    </body>
+</html>
