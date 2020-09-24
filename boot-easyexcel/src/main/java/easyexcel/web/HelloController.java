@@ -12,12 +12,7 @@ import easyexcel.handler.ExcelColorHandler;
 import easyexcel.handler.MyCellWriteHandler;
 import easyexcel.handler.MySheetWriteHandler;
 import easyexcel.service.DrivingBehaviorCompareService;
-import easyexcel.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Lookup;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +24,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * HelloController
@@ -40,29 +36,9 @@ import java.util.*;
 @Slf4j
 @RestController
 @RequestMapping("/hello/excel")
-public abstract class HelloController {
+public class HelloController {
     @Resource
     private DrivingBehaviorCompareService drivingBehaviorCompareService;
-
-    private ApplicationContext applicationContext;
-
-
-    @Value("${hello.bbc}")
-    private String hello;
-
-    @GetMapping("/")
-    public String sayHello(@RequestParam(value = "name",required = false,defaultValue = "World") String name) {
-        log.info("sayHello : Hello {}", name);
-        HelloService helloService = getHelloService();
-        return helloService.sayHello(name);
-    }
-
-    @Lookup
-    public abstract HelloService getHelloService();
-
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
 
     @GetMapping("/export")
     public void export(@RequestParam(value = "name", required = false, defaultValue = "hello-excel") String fileName, HttpServletResponse response) throws IOException {

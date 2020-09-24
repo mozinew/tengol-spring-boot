@@ -20,7 +20,6 @@ public class HelloKafkaProducer {
         properties.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
         properties.put("bootstrap.servers",brokers);
-        Byte
 
         //配置生产者的客户端参数，并创建 KafkaProducer 实例
         KafkaProducer<String,String> producer = new KafkaProducer<String, String>(properties);
