@@ -78,50 +78,50 @@
 
     <!-- email begin -->
     <!-- SMTP server的地址，必需指定。如网易126的SMTP服务器地址是： smtp.126.com -->
-    <property name="smtpHost" value="smtp.qiye.163.com"/>
-    <!-- SMTP server的端口地址。默认值：25 -->
-    <property name="smtpPort" value="465"/>
-    <!-- 发送邮件账号 -->
-    <property name="username" value="dongrui@aerozhonghuan.com"/>
-    <!-- 发送邮件密码（此密码为网易126邮箱的客户端授权密码，不是邮箱登录密码，126邮箱需要开启POP3/SMTP服务、IMAP/SMTP服务才可使用） -->
-    <property name="password" value="Newjob#0722"/>
-    <!-- 如果设置为true，appender将会使用SSL连接到日志服务器。默认值：false -->
-    <property name="SSL" value="true"/>
-    <!-- 指定发送到那个邮箱，可设置多个<to>属性，指定多个目的邮箱，收件人账号多个可以逗号隔开 -->
-    <property name="email_to" value="xuesongzhulin@126.com"/>
-    <!-- 指定发件人名称。 -->
-    <property name="email_from" value="dongrui@aerozhonghuan.com" />
-    <!-- 指定emial的标题，它需要满足PatternLayout中的格式要求。如果设置成“Log: %logger - %msg”，就案例来讲，则发送邮件时， -->
-    <!-- 标题为“【Error】: com.****.****Task - null.equals”。  -->
-    <property name="email_subject" value="【boot-hello error】: %logger - %msg" />
+    <!--<property name="smtpHost" value="smtp.qiye.163.com"/>-->
+    <!--&lt;!&ndash; SMTP server的端口地址。默认值：25 &ndash;&gt;-->
+    <!--<property name="smtpPort" value="465"/>-->
+    <!--&lt;!&ndash; 发送邮件账号 &ndash;&gt;-->
+    <!--<property name="username" value="dongrui@aerozhonghuan.com"/>-->
+    <!--&lt;!&ndash; 发送邮件密码（此密码为网易126邮箱的客户端授权密码，不是邮箱登录密码，126邮箱需要开启POP3/SMTP服务、IMAP/SMTP服务才可使用） &ndash;&gt;-->
+    <!--<property name="password" value="Newjob#0722"/>-->
+    <!--&lt;!&ndash; 如果设置为true，appender将会使用SSL连接到日志服务器。默认值：false &ndash;&gt;-->
+    <!--<property name="SSL" value="true"/>-->
+    <!--&lt;!&ndash; 指定发送到那个邮箱，可设置多个<to>属性，指定多个目的邮箱，收件人账号多个可以逗号隔开 &ndash;&gt;-->
+    <!--<property name="email_to" value="xuesongzhulin@126.com"/>-->
+    <!--&lt;!&ndash; 指定发件人名称。 &ndash;&gt;-->
+    <!--<property name="email_from" value="dongrui@aerozhonghuan.com" />-->
+    <!--&lt;!&ndash; 指定emial的标题，它需要满足PatternLayout中的格式要求。如果设置成“Log: %logger - %msg”，就案例来讲，则发送邮件时， &ndash;&gt;-->
+    <!--&lt;!&ndash; 标题为“【Error】: com.****.****Task - null.equals”。  &ndash;&gt;-->
+    <!--<property name="email_subject" value="【boot-hello error】: %logger - %msg" />-->
 
     <!-- 邮件发送的appender -->
-    <appender name="errorEmail" class="ch.qos.logback.classic.net.SMTPAppender">
-        <smtpHost>${smtpHost}</smtpHost>
-        <smtpPort>${smtpPort}</smtpPort>
-        <username>${username}</username>
-        <password>${password}</password>
-        <asynchronousSending>true</asynchronousSending>
-        <SSL>${SSL}</SSL>
-        <to>${email_to}</to>
-        <from>${email_from}</from>
-        <subject>${email_subject}</subject>
+    <!--<appender name="errorEmail" class="ch.qos.logback.classic.net.SMTPAppender">-->
+    <!--    <smtpHost>${smtpHost}</smtpHost>-->
+    <!--    <smtpPort>${smtpPort}</smtpPort>-->
+    <!--    <username>${username}</username>-->
+    <!--    <password>${password}</password>-->
+    <!--    <asynchronousSending>true</asynchronousSending>-->
+    <!--    <SSL>${SSL}</SSL>-->
+    <!--    <to>${email_to}</to>-->
+    <!--    <from>${email_from}</from>-->
+    <!--    <subject>${email_subject}</subject>-->
 
-        <!-- html格式 -->
-        <layout class="ch.qos.logback.classic.html.HTMLLayout">
-            <Pattern>%date%level%thread%logger{0}%line%message</Pattern>
-        </layout>
-        <!-- 这里采用等级过滤器，指定等级相符才发送，这里指定ERROR级别才发送 -->
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-        <!-- 每个电子邮件只发送一个日志条目 -->
-        <cyclicBufferTracker class="ch.qos.logback.core.spi.CyclicBufferTracker">
-            <bufferSize>1</bufferSize>
-        </cyclicBufferTracker>
-    </appender>
+    <!--    &lt;!&ndash; html格式 &ndash;&gt;-->
+    <!--    <layout class="ch.qos.logback.classic.html.HTMLLayout">-->
+    <!--        <Pattern>%date%level%thread%logger{0}%line%message</Pattern>-->
+    <!--    </layout>-->
+    <!--    &lt;!&ndash; 这里采用等级过滤器，指定等级相符才发送，这里指定ERROR级别才发送 &ndash;&gt;-->
+    <!--    <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+    <!--        <level>ERROR</level>-->
+    <!--        <onMatch>ACCEPT</onMatch>-->
+    <!--        <onMismatch>DENY</onMismatch>-->
+    <!--    </filter>-->
+    <!--    &lt;!&ndash; 每个电子邮件只发送一个日志条目 &ndash;&gt;-->
+    <!--    <cyclicBufferTracker class="ch.qos.logback.core.spi.CyclicBufferTracker">-->
+    <!--        <bufferSize>1</bufferSize>-->
+    <!--    </cyclicBufferTracker>-->
+    <!--</appender>-->
     <!-- email end-->
 
     <!--root config  -->
