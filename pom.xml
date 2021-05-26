@@ -23,6 +23,7 @@
         <module>boot-hello</module>
         <module>boot-cors</module>
         <module>boot-easyexcel</module>
+        <module>boot-business-cases</module>
     </modules>
 
     <properties>
