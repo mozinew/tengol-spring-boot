@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: boot-redis-test
+
+  ## redis config ( Simple )
+  redis:
+    database: 0
+    host: jd11
+    port: 6379
+    password: jd@2021
