@@ -25,6 +25,7 @@
         <module>boot-easyexcel</module>
         <module>boot-business-cases</module>
         <module>boot-redis</module>
+        <module>boot-rocketmq</module>
     </modules>
 
     <properties>
@@ -38,7 +39,7 @@
         <easyexcel.version>2.2.6</easyexcel.version>
         <spring-retry.version>1.2.4.RELEASE</spring-retry.version>
         <aspectjweaver.version>1.9.4</aspectjweaver.version>
-        <redis.version></redis.version>
+        <rocketmq-boot.version>2.2.0</rocketmq-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -85,6 +86,12 @@
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${spring-boot.version}</version>
                 <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-boot.version}</version>
             </dependency>
 
         </dependencies>

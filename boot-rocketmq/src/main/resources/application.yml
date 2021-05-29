@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hello-rocketmq
+
+rocketmq:
+  name-server: 114.67.82.110:9876
+  producer:
+    group: hello-rocket-group
